@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Web Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-primary to-purple-600 text-white">
+        <div class="container mx-auto px-6 py-8">
+            <h1 class="text-4xl font-bold mb-2">Hi, I'm Vinay kharvi</h1>
+            <p class="text-xl opacity-90">Engineering Student | CS & DS</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <!-- Hero Section -->
+        <section class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800 dark:text-gray-100">
+                Learning, Building, and Innovating in CS & DS
+            </h2>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+                Computer Science & Data Science student creating impactful projects in AI, web development, and data analytics.
+            </p>
+            <button id="cta-button" class="bg-primary hover:bg-purple-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 transform hover:scale-105">
+                Get Started
+            </button>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Fast & Responsive</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Optimized for all devices with lightning-fast performance and smooth animations.
+                </p>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Modern Design</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Clean, contemporary aesthetics that work beautifully in both light and dark modes.
+                </p>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">User Friendly</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                    Intuitive interface designed with the user experience as the top priority.
+                </p>
+            </div>
+        </section>
+
+        <!-- Interactive Demo -->
+        <section class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 text-center">
+            <h3 class="text-2xl font-bold mb-6">Interactive Demo</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">Click the button below to see a simple animation</p>
+            <button id="demo-button" class="bg-white dark:bg-gray-800 text-gray-800 dark:text-white border-2 border-primary hover:bg-primary hover:text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300">
+                Try Animation
+            </button>
+            <div id="animation-box" class="w-16 h-16 bg-primary rounded-lg mx-auto mt-6 transition-all duration-500 transform"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-800 mt-16">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p class="text-gray-600 dark:text-gray-400">
+                © 2024 Simple Web Page. Built with modern web technologies.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode detection and handling
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Interactive elements
+        document.getElementById('cta-button').addEventListener('click', function() {
+            this.innerHTML = 'Welcome! 🎉';
+            this.classList.add('bg-green-500');
+            this.classList.remove('bg-primary', 'hover:bg-purple-600');
+            
+            setTimeout(() => {
+                this.innerHTML = 'Get Started';
+                this.classList.remove('bg-green-500');
+                this.classList.add('bg-primary', 'hover:bg-purple-600');
+            }, 2000);
+        });
+
+        document.getElementById('demo-button').addEventListener('click', function() {
+            const box = document.getElementById('animation-box');
+            
+            // Trigger animation
+            box.style.transform = 'rotate(360deg) scale(1.2)';
+            box.style.backgroundColor = '#10B981'; // Green color
+            
+            // Reset after animation
+            setTimeout(() => {
+                box.style.transform = 'rotate(0deg) scale(1)';
+                box.style.backgroundColor = '#5D5CDE'; // Primary color
+            }, 500);
+        });
+    </script>
+</body>
+</html>
