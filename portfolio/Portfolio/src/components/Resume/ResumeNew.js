@@ -10,17 +10,6 @@ function ResumeNew() {
     <div>
       <Container fluid className="resume-section">
         <Particle />
-        <Row style={{ justifyContent: "center", position: "relative" }} className="reveal fade-bottom">
-          <Button
-            variant="primary"
-            disabled
-            style={{ maxWidth: "250px", cursor: "not-allowed", opacity: 0.6 }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
-        </Row>
-
         <Row className="resume reveal scale-up" style={{ justifyContent: "center", padding: "80px 0" }}>
           <Col md={8} lg={6} style={{ display: 'flex', justifyContent: 'center' }}>
             {/* ... card content ... */}
@@ -66,16 +55,6 @@ function ResumeNew() {
           </Col>
         </Row>
 
-        <Row style={{ justifyContent: "center", position: "relative" }} className="reveal fade-bottom">
-          <Button
-            variant="primary"
-            disabled
-            style={{ maxWidth: "250px", cursor: "not-allowed", opacity: 0.6 }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
-        </Row>
       </Container>
     </div>
   );

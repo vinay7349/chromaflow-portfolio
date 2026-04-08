@@ -62,10 +62,12 @@ function Home2() {
           </Col>
         </Row>
         <Row>
-          <Col md={12} className="home-about-social">
-            <h1>FIND ME ON</h1>
-            <p>
-              Feel free to <span className="purple">connect </span>with me
+          <Col md={12} className="home-about-social" style={{ marginTop: "30px", marginBottom: "20px" }}>
+            <h1 className="section-title" style={{ fontSize: "2.3em", letterSpacing: "2px", fontWeight: "600", textShadow: "0 0 10px rgba(199, 112, 240, 0.4)" }}>
+              FIND ME ON
+            </h1>
+            <p style={{ marginTop: "15px", fontSize: "1.15em", color: "rgba(220, 210, 235, 0.8)", fontWeight: "400" }}>
+              Feel free to <span className="purple" style={{ fontWeight: "600", textShadow: "0 0 8px rgba(199, 112, 240, 0.5)" }}>connect </span>with me
             </p>
             <ul className="home-about-social-links">
               <li className="social-icons">

@@ -6,7 +6,7 @@ import Toolstack from "./Toolstack";
 
 function Skills() {
   return (
-    <Container fluid className="about-section" id="skills" style={{ minHeight: "100vh", display: 'flex', alignItems: 'center' }}>
+    <Container fluid className="about-section" id="skills" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
       <Particle />
       <Container>
         <h1 className="project-heading reveal fade-bottom section-title">

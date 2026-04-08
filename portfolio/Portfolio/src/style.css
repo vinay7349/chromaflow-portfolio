@@ -275,18 +275,25 @@ button:focus {
 .page-section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   padding-top: 90px;
+  overflow-y: auto;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
   will-change: transform, opacity;
   transition: 
     opacity 1.2s cubic-bezier(0.19, 1, 0.22, 1),
     transform 1.0s cubic-bezier(0.19, 1, 0.22, 1);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.page-section::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
 }
 
 .page-section.reveal {
@@ -473,6 +480,7 @@ button:focus {
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   flex: 1;
 }
 
@@ -630,12 +638,15 @@ button:focus {
 /* Footer */
 /* --------- */
 .footer {
-  background-color: rgb(10, 4, 22);
-  bottom: 0 !important;
-  padding-top: 10px !important;
-  padding-bottom: 8px !important;
-  border: none;
+  background-color: #0c0513;
+  padding-top: 15px !important;
+  padding-bottom: 10px !important;
+  border-top: 1px solid rgba(199, 112, 240, 0.2);
   margin: 0;
+  width: 100vw;
+  z-index: 100;
+  scroll-snap-align: end;
+  scroll-snap-stop: normal;
 }
 .footer-copywright {
   text-align: center !important;
@@ -841,28 +852,38 @@ button:focus {
 .tech-icons {
   font-size: 4.5em !important;
   margin: 15px !important;
-  padding: 10px !important;
-  opacity: 0.93 !important;
-  border: 1.7px solid rgba(200, 137, 230, 0.637) !important;
+  padding: 25px !important;
+  opacity: 1 !important;
+  background: rgba(20, 15, 35, 0.5) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(199, 112, 240, 0.15) !important;
   vertical-align: middle !important;
   text-align: center !important;
-  border-radius: 5px !important;
-  display: table !important;
-  box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
+  border-radius: 15px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255,255,255,0.05) !important;
   overflow: hidden !important;
-  transition: all 0.4s ease 0s !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  color: #c770f0 !important;
 }
 
 @media (max-width: 767px) {
   .tech-icons {
     margin: 10px !important;
+    padding: 15px !important;
+    font-size: 3.5em !important;
   }
 }
 
 .tech-icons:hover {
-  transform: scale(1.05) !important;
+  transform: translateY(-8px) scale(1.05) !important;
   overflow: hidden !important;
-  border: 2.2px solid rgba(197, 115, 230, 0.883) !important;
+  border: 1px solid rgba(199, 112, 240, 0.45) !important;
+  box-shadow: 0 15px 35px rgba(199, 112, 240, 0.25), inset 0 2px 2px rgba(255,255,255,0.1) !important;
+  color: white !important;
 }
 .tech-icon-images {
   padding: 20px !important;

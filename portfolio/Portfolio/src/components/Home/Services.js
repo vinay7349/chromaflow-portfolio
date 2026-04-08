@@ -34,44 +34,84 @@ function Services() {
   return (
     <Container fluid className="about-section" id="services" style={{ minHeight: "100vh", display: 'flex', alignItems: 'center' }}>
       <Container>
-        <div style={{ textAlign: "center", marginBottom: "40px" }} className="reveal fade-bottom">
+        <div style={{ textAlign: "center", marginBottom: "50px" }} className="reveal fade-bottom">
           <p style={{ 
-            color: "#7F77DD", 
+            color: "rgba(220, 210, 235, 0.6)", 
             letterSpacing: "4px", 
             textTransform: "uppercase", 
-            fontSize: "0.9rem",
+            fontSize: "0.95rem",
             fontWeight: "600",
             marginBottom: "10px"
           }}>
             What I offer
           </p>
-          <h2 style={{ color: "#26215C", fontSize: "2.8rem", fontWeight: "700", marginBottom: "15px" }}>Services for you</h2>
-          <p style={{ color: "#7F77DD", fontSize: "1.1rem" }}>Simple packages to get your brand online fast</p>
+          <h2 style={{ 
+            color: "white", 
+            fontSize: "2.8rem", 
+            fontWeight: "700", 
+            marginBottom: "15px",
+            textShadow: "0 0 10px rgba(199, 112, 240, 0.4)"
+          }}>
+            Services <span className="purple">for you</span>
+          </h2>
+          <p style={{ color: "rgba(220, 210, 235, 0.8)", fontSize: "1.1rem" }}>Simple packages to get your brand online fast</p>
         </div>
 
         <Row style={{ justifyContent: "center" }} className="reveal scale-up">
           {serviceData.map((service, index) => (
-            <Col md={3} key={index} style={{ padding: "15px" }}>
-              <Card style={{ 
-                backgroundColor: "#EEEDFE", 
-                borderColor: "#CECBF6", 
-                borderRadius: "15px",
-                padding: "25px",
-                height: "100%",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                textAlign: "center"
-              }} className="service-card-item">
-                <div style={{ color: "#7F77DD", marginBottom: "20px" }}>{service.icon}</div>
+            <Col md={3} sm={6} key={index} style={{ padding: "15px" }}>
+              <Card 
+                style={{ 
+                  background: "rgba(20, 15, 35, 0.5)",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                  border: "1px solid rgba(199, 112, 240, 0.15)",
+                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
+                  borderRadius: "20px",
+                  padding: "30px 20px",
+                  height: "100%",
+                  transition: "all 0.4s ease",
+                  textAlign: "center",
+                  cursor: "pointer"
+                }} 
+                className="service-card-item"
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-10px)';
+                  e.currentTarget.style.boxShadow = '0 15px 40px rgba(199, 112, 240, 0.2)';
+                  e.currentTarget.style.border = '1px solid rgba(199, 112, 240, 0.4)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+                  e.currentTarget.style.border = '1px solid rgba(199, 112, 240, 0.15)';
+                }}
+              >
+                <div style={{ 
+                  background: "rgba(199, 112, 240, 0.1)",
+                  width: "80px",
+                  height: "80px",
+                  borderRadius: "50%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  margin: "0 auto 20px auto",
+                  color: "#c770f0",
+                  boxShadow: "0 0 20px rgba(199, 112, 240, 0.15)",
+                  transition: "all 0.3s ease"
+                }} className="service-icon">
+                  {service.icon}
+                </div>
                 <Card.Title style={{ 
-                  color: "#26215C", 
-                  fontWeight: "700", 
-                  fontSize: "1.25rem",
-                  marginBottom: "15px" 
+                  color: "white", 
+                  fontWeight: "600", 
+                  fontSize: "1.3rem",
+                  marginBottom: "15px",
+                  letterSpacing: "0.5px"
                 }}>
                   {service.title}
                 </Card.Title>
                 <Card.Text style={{ 
-                  color: "#7F77DD", 
+                  color: "rgba(220, 210, 235, 0.7)", 
                   fontSize: "0.95rem",
                   lineHeight: "1.6" 
                 }}>
