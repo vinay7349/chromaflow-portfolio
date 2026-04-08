@@ -223,23 +223,7 @@ button:focus {
   z-index: 1;
 }
 
-.navbar-nav .nav-item a::after {
-  content: "";
-  position: relative;
-  display: block;
-  height: 5px;
-  width: 0;
-  border-radius: 16px;
-  background: #c95bf5;
-  bottom: 1px;
-  left: 0;
-  z-index: -1;
-  transition: all 0.3s ease-out 0s;
-}
-
-.navbar-nav .nav-item a:hover::after {
-  width: 100%;
-}
+/* Removed nav-item a::after styling */
 
 /* --------- */
 /* Single Page Scroll Experience — Full Screen Snapping */
@@ -289,8 +273,8 @@ button:focus {
 }
 
 .page-section {
-  scroll-snap-align: center;
-  scroll-snap-stop: normal;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   min-height: 100vh;
   width: 100vw;
   padding-top: 90px;
@@ -342,16 +326,7 @@ button:focus {
   color: #c770f0 !important;
 }
 
-.main-scroll-wrapper {
-  scroll-snap-type: y proximity;
-  overflow-y: scroll;
-  height: 100vh;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  scroll-behavior: smooth;
-  will-change: scroll-position;
-  overscroll-behavior-y: contain; /* Prevents unwanted browser bounce */
-}
+/* Removed extra main-scroll-wrapper override */
 
 .main-scroll-wrapper::-webkit-scrollbar {
   display: none;
@@ -797,6 +772,62 @@ button:focus {
 /* --------- */
 /* About */
 /* --------- */
+
+/* Fullpage Scroll Indicator */
+.fullpage-scroll-indicator {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.indicator-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.indicator-dot:hover {
+  background: rgba(199, 112, 240, 0.6);
+  transform: scale(1.3);
+}
+
+.indicator-dot.active {
+  background: #c770f0;
+  transform: scale(1.4);
+  box-shadow: 0 0 10px rgba(199, 112, 240, 0.8);
+}
+
+.dot-tooltip {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  background: rgba(24, 18, 38, 0.9);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  border: 1px solid rgba(199, 112, 240, 0.3);
+}
+
+.indicator-dot:hover .dot-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
 
 .about-section {
   position: relative !important;

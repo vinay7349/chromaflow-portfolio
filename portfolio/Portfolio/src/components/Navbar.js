@@ -131,14 +131,7 @@ function NavBar({ activeSection }) {
         </Navbar.Toggle>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" style={{ position: "relative" }}>
-            <div 
-              className="sliding-indicator" 
-              style={{ 
-                ...indicatorStyle,
-                position: "absolute",
-                bottom: "-5px"
-              }}
-            />
+            {/* Removed sliding indicator block */}
             
             <Nav.Item ref={el => navRefs.current["home"] = el}>
               <Nav.Link 

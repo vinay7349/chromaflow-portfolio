@@ -17,6 +17,9 @@ import {
   Navigate
 } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
+import ScrollIndicator from "./components/ScrollIndicator";
+import useScrollAnimation from "./hooks/useScrollAnimation";
+import useDragToScroll from "./hooks/useDragToScroll";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -26,56 +29,49 @@ function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState("home");
 
+  const sectionsList = [
+    { id: "home" },
+    { id: "intro" },
+    { id: "services" },
+    { id: "about" },
+    { id: "skills" },
+    { id: "projects" },
+    { id: "resume" },
+    { id: "blogs" }
+  ];
+
+  useScrollAnimation(setActiveSection);
+
   useEffect(() => {
     const mainWrapper = document.querySelector(".main-scroll-wrapper");
-    
+    if (!mainWrapper) return;
+
     const handleScroll = () => {
-      if (!mainWrapper) return;
       const scrolled = (mainWrapper.scrollTop / (mainWrapper.scrollHeight - mainWrapper.clientHeight)) * 100;
       setScrollProgress(scrolled);
     };
 
-    const revealOnScroll = () => {
-      const reveals = document.querySelectorAll(".reveal");
-      const sections = document.querySelectorAll(".page-section");
-      
-      // Current Section Tracking for Navbar
-      sections.forEach((section) => {
-        const top = section.getBoundingClientRect().top;
-        if (top >= -50 && top <= 150) {
-          setActiveSection(section.id);
-        }
-      });
-
-      // Reveal Animations Logic
-      reveals.forEach((reveal) => {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveal.getBoundingClientRect().top;
-        const elementVisible = 100;
-        if (elementTop < windowHeight - elementVisible) {
-          reveal.classList.add("active");
-        }
-      });
-    };
-
-    if (mainWrapper) {
-      mainWrapper.addEventListener("scroll", handleScroll);
-      mainWrapper.addEventListener("scroll", revealOnScroll);
-    }
+    mainWrapper.addEventListener("scroll", handleScroll);
     
     const timer = setTimeout(() => {
       updateLoad(false);
-      revealOnScroll();
     }, 1200);
 
     return () => {
-      if (mainWrapper) {
-        mainWrapper.removeEventListener("scroll", handleScroll);
-        mainWrapper.removeEventListener("scroll", revealOnScroll);
-      }
+      mainWrapper.removeEventListener("scroll", handleScroll);
       clearTimeout(timer);
     };
-  }, [load]);
+  }, []);
+
+  const currentSectionIndex = sectionsList.findIndex(s => s.id === activeSection);
+
+  const scrollToSection = (index) => {
+    const mainWrapper = document.querySelector(".main-scroll-wrapper");
+    const sections = document.querySelectorAll(".page-section");
+    if (mainWrapper && sections[index]) {
+      sections[index].scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <Router>
@@ -89,7 +85,13 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={
-            <div className="main-scroll-wrapper">
+            <>
+              <ScrollIndicator 
+                sections={sectionsList} 
+                currentSectionIndex={currentSectionIndex !== -1 ? currentSectionIndex : 0} 
+                scrollToSection={scrollToSection}
+              />
+              <div className="main-scroll-wrapper">
               <section id="home" className="page-section reveal"><Home /></section>
               <section id="intro" className="page-section reveal"><Home2 /></section>
               <section id="services" className="page-section reveal"><Services /></section>
@@ -100,6 +102,7 @@ function App() {
               <section id="blogs" className="page-section reveal"><Blogs /></section>
               <Footer />
             </div>
+            </>
           } />
           <Route path="/about" element={<Navigate to="/#about"/>} />
           <Route path="/project" element={<Navigate to="/#projects"/>} />
