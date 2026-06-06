@@ -31,13 +31,10 @@ function NavBar({ activeSection }) {
 
   useEffect(() => {
     const updateIndicator = () => {
-      // Map 'intro' and 'skills' to 'about' for the primary About highlight
-      const trackedSection = (activeSection === "intro" || activeSection === "about" || activeSection === "skills") 
-        ? "about" 
+      const trackedSection = (activeSection === "intro" || activeSection === "skills")
+        ? "intro"
         : activeSection;
-        
       const activeElement = navRefs.current[trackedSection];
-      
       if (activeElement) {
         const { offsetLeft, offsetWidth } = activeElement;
         setIndicatorStyle({
@@ -139,15 +136,6 @@ function NavBar({ activeSection }) {
                 className={activeSection === "home" ? "active-section" : ""}
               >
                 <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item ref={el => navRefs.current["about"] = el}>
-              <Nav.Link 
-                onClick={() => scrollToSection("about")}
-                className={activeSection === "about" || activeSection === "intro" || activeSection === "skills" ? "active-section" : ""}
-              >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
               </Nav.Link>
             </Nav.Item>
 

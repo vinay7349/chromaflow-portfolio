@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
 import Home2 from "./components/Home/Home2";
 import Services from "./components/Home/Services";
-import About from "./components/About/About";
 import Skills from "./components/About/Skills";
 import Projects from "./components/Projects/Projects";
 import Blogs from "./components/Blogs";
@@ -33,7 +32,6 @@ function App() {
     { id: "home" },
     { id: "intro" },
     { id: "services" },
-    { id: "about" },
     { id: "skills" },
     { id: "projects" },
     { id: "resume" },
@@ -95,7 +93,6 @@ function App() {
               <section id="home" className="page-section reveal"><Home /></section>
               <section id="intro" className="page-section reveal"><Home2 /></section>
               <section id="services" className="page-section reveal"><Services /></section>
-              <section id="about" className="page-section reveal"><About /></section>
               <section id="skills" className="page-section reveal"><Skills /></section>
               <section id="projects" className="page-section reveal"><Projects /></section>
               <section id="resume" className="page-section reveal"><Resume /></section>
@@ -104,7 +101,6 @@ function App() {
             </div>
             </>
           } />
-          <Route path="/about" element={<Navigate to="/#about"/>} />
           <Route path="/project" element={<Navigate to="/#projects"/>} />
           <Route path="/resume" element={<Navigate to="/#resume"/>} />
           <Route path="*" element={<Navigate to="/"/>} />

@@ -26,9 +26,6 @@ function AboutCard() {
             <li className="about-activity">
               <ImPointRight /> Learning and improving my skills
             </li>
-            <li className="about-activity">
-              <ImPointRight /> Travelling and experiencing new places
-            </li>
           </ul>
 
           <p style={{ color: "rgb(155 126 172)" }}>
