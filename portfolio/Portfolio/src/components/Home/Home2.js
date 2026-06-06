@@ -40,17 +40,16 @@ function Home2() {
             </h1>
             <p className="home-about-body home-about-body-glass">
               <span style={{ display: "block", marginBottom: "12px" }}>
-                I enjoy creating simple and modern websites that help businesses build their online presence.
+                I help businesses and individuals create clean, modern, and professional websites that establish a strong online presence.
               </span>
               <span style={{ display: "block", marginBottom: "12px" }}>
-                I focus on designing clean, user-friendly information websites that clearly represent a client's services and ideas.
+                My focus is on building user-friendly websites that clearly showcase your services, ideas, and brand identity.
               </span>
               <span style={{ display: "block", marginBottom: "12px" }}>
-                My main interest is in building responsive and visually appealing websites using{" "}
-                <b className="purple">HTML, CSS, and JavaScript.</b>
+                I pay close attention to design, usability, and detail to ensure every website is visually appealing and easy to navigate.
               </span>
               <span style={{ display: "block" }}>
-                Whenever possible, I work on improving my skills and creating better designs that meet customer requirements and provide a smooth user experience.
+                I believe in clear communication, understanding client requirements, and delivering work that meets expectations.
               </span>
             </p>
           </Col>
