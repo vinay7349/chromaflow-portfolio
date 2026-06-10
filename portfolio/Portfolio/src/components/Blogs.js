@@ -1,12 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Particle from "./Particle";
 import { ImBlog } from "react-icons/im";
 
 function Blogs() {
   return (
     <Container fluid className="project-section" id="blogs" style={{ minHeight: "100vh", display: "flex", alignItems: "center" }}>
-      <Particle />
       <Container>
         <h1 className="project-heading reveal fade-bottom section-title">
           My <strong className="purple">Blogs </strong>

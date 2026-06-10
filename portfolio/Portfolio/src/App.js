@@ -19,6 +19,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import ScrollIndicator from "./components/ScrollIndicator";
 import useScrollAnimation from "./hooks/useScrollAnimation";
 import useDragToScroll from "./hooks/useDragToScroll";
+import Particle from "./components/Particle";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -84,6 +85,7 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
+              <Particle />
               <ScrollIndicator 
                 sections={sectionsList} 
                 currentSectionIndex={currentSectionIndex !== -1 ? currentSectionIndex : 0} 

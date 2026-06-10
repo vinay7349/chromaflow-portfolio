@@ -1,13 +1,11 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import Particle from "../Particle";
 import Techstack from "./Techstack";
 import Toolstack from "./Toolstack";
 
 function Skills() {
   return (
     <Container fluid className="about-section" id="skills" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
-      <Particle />
       <Container>
         <h1 className="project-heading reveal fade-bottom section-title">
           Professional <strong className="purple">Skillset </strong>

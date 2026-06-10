@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import Particle from "../Particle";
 import { AiOutlineDownload, AiOutlineFilePdf, AiOutlineClockCircle } from "react-icons/ai";
 
 function ResumeNew() {
@@ -9,7 +8,6 @@ function ResumeNew() {
   return (
     <div>
       <Container fluid className="resume-section">
-        <Particle />
         <Row className="resume reveal scale-up" style={{ justifyContent: "center", padding: "80px 0" }}>
           <Col md={8} lg={6} style={{ display: 'flex', justifyContent: 'center' }}>
             {/* ... card content ... */}

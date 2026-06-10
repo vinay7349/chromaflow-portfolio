@@ -1,13 +1,11 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Particle from "../Particle";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about.png";
 
 function About() {
   return (
     <Container fluid className="about-section" style={{ minHeight: "100vh", display: 'flex', alignItems: 'center' }}>
-      <Particle />
       <Container>
         <Row style={{ justifyContent: "center", padding: "10px" }} className="reveal fade-bottom">
           <Col
